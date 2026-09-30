@@ -1,0 +1,46 @@
+# Daily: the contribution snake for this README, and the download badge on OpenTokenUsage's README.
+# Both land on the `output` branch and are read from raw.githubusercontent.com.
+name: Profile assets
+
+on:
+  schedule:
+    - cron: "17 4 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Contribution snake
+        uses: Platane/snk@d8f6715049803e982ee5ff501b6b9b7d5deeb09b # v3.5.0
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/snake.svg?palette=github-light&color_snake=#f26b38
+            dist/snake-dark.svg?palette=github-dark&color_snake=#4dd0e1
+
+      - name: OpenTokenUsage download count
+        shell: bash  # adds pipefail, so a failed API call fails the job instead of publishing 0
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # Installers only: the in-app updater fetches latest.json and the .sig files on every check.
+          n=$(gh api --paginate "repos/PowerUserZ/OpenTokenUsage/releases?per_page=100" \
+            --jq '.[].assets[] | select(.name | endswith(".exe") or endswith(".msi")) | .download_count' | awk '{ s += $1 } END { print s + 0 }')
+          msg=$(awk -v n="$n" 'BEGIN { if (n >= 1000) printf "%.1fk", n / 1000; else print n }')
+          printf '{"schemaVersion":1,"label":"downloads","message":"%s","color":"3ba1ff","labelColor":"1d1d22"}\n' "$msg" > dist/otu-downloads.json
+          cat dist/otu-downloads.json
+
+      - name: Publish to the output branch
+        uses: crazy-max/ghaction-github-pages@1d6ee9b181a81033a16bd707a1401afa978daab4 # v5.0.0
+        with:
+          target_branch: output
+          build_dir: dist
+          jekyll: false
+        env:
+          GITHUB_TOKEN: ${{ github.token }}

@@ -10,17 +10,9 @@ I pair program with Claude Code, Codex and Cursor, which means I also hit their 
 
 <img src="assets/limits.svg" width="100%" alt="Today's limits. Claude Code weekly: 94%, runs out tomorrow at this pace. Coffee: 68%, top it up below. Side projects: 300%, way over the limit. Browser tabs: 87%, RAM disagrees. Will to use the mouse: 3%, keyboard wins.">
 
-## 🧾 About me, as a config file
+## 🖥️ Where I code
 
-```yaml
-# ~/.poweruserz.yml
-role: indie developer
-runs_on: [windows-11, wsl2, android]
-stack: [rust, tauri, typescript, react, kotlin, jetpack-compose, bash]
-pair_programmers: [claude-code, codex, cursor]
-theme: pure-black
-mouse: optional
-```
+<img src="assets/setup.svg" width="100%" alt="My home row: Windows 11, macOS, Ubuntu 26.04, WSL2, Android. My pair programmers: Claude Code, Codex, Cursor, OpenCode.">
 
 ## 🛠️ Side effects of being annoyed
 

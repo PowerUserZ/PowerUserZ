@@ -6,15 +6,9 @@ When something on my computer annoys me twice, I build an app for it. Then I giv
 
 I pair program with Claude Code, Codex and Cursor, which means I also hit their usage limits. So yes, I built an app for that too.
 
-## ⌨️ My keyboard, explained
+## 📊 Status report
 
-| Shortcut | What it means to me |
-| :-- | :-- |
-| <kbd>Ctrl</kbd> <kbd>C</kbd> then <kbd>Ctrl</kbd> <kbd>V</kbd> | Half of software engineering |
-| <kbd>Win</kbd> <kbd>Shift</kbd> <kbd>S</kbd> then <kbd>Alt</kbd> <kbd>V</kbd> | A screenshot, straight into Claude Code on WSL. [I made that work.](https://github.com/PowerUserZ/wsl-clipboard-png-bridge) |
-| <kbd>Esc</kbd> | "Wait, Claude, not like that" |
-| <kbd>Alt</kbd> <kbd>Tab</kbd> | Checking how much AI I have left today ([there's an app for that](https://github.com/PowerUserZ/OpenTokenUsage)) |
-| <kbd>Ctrl</kbd> <kbd>Z</kbd> | Where the Z in my name comes from. Probably. |
+<img src="assets/limits.svg" width="100%" alt="Today's limits. Claude Code weekly: 94%, runs out tomorrow at this pace. Coffee: 68%, top it up below. Side projects: 300%, way over the limit. Browser tabs: 87%, RAM disagrees. Will to use the mouse: 3%, keyboard wins.">
 
 ## 🧾 About me, as a config file
 
